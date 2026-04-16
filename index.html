@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ai-dan — Legal AI for Modern Law Firms</title>
+  <meta name="description" content="ai-dan: document analysis, legal research, trust accounting, estate planning, and Office integration. Built by attorneys, for attorneys.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><polyline points='100,150 250,200 400,150 400,350 250,300 100,350 100,150' fill='%23881111' stroke='%23881111' stroke-width='30' stroke-linejoin='round' stroke-linecap='round'/></svg>">
+  <style>
+    :root {
+      --crimson: #881111;
+      --crimson-hover: #A41919;
+      --cream: #FDFDF6;
+      --warm-bg: #FFFFEE;
+      --charcoal: #222222;
+      --text-secondary: #6B6560;
+      --mid: #A8A29E;
+      --surface: #FDFDF6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--warm-bg);
+      color: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 720px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .logo-mark {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .brand .bowtie {
+      color: var(--crimson);
+      font-size: 1.8rem;
+      vertical-align: middle;
+      margin: 0 0.15em;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--crimson);
+      color: var(--cream);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4em 1.2em;
+      border-radius: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid #EEEAE4;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .feature h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--crimson);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .feature p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .cta-section { margin-bottom: 2rem; }
+
+    .cta-section p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .cta-link {
+      display: inline-block;
+      background: var(--crimson);
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .cta-link:hover { background: var(--crimson-hover); }
+
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #EEEAE4;
+    }
+
+    .footer p {
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: var(--crimson); }
+
+    @media (max-width: 600px) {
+      .brand { font-size: 2.2rem; }
+      .features { grid-template-columns: 1fr; }
+      .container { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <svg class="logo-mark" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-label="ai-dan bowtie logomark">
+      <polyline points="100,150 250,200 400,150 400,350 250,300 100,350 100,150"
+        fill="#881111" stroke="#881111" stroke-width="30"
+        stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+
+    <h1 class="brand">ai<span class="bowtie">&#x2736;</span>dan</h1>
+
+    <p class="tagline">Legal AI for modern law firms.<br>Built by attorneys, for attorneys.</p>
+
+    <div class="badge">Coming Soon</div>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Dan-Word</h3>
+        <p>Legal drafting assistance, tracked-change comparison, and spendthrift-clause detection inside Microsoft Word.</p>
+      </div>
+      <div class="feature">
+        <h3>Dan-Outlook</h3>
+        <p>Pre-send compliance checks, one-click email filing to client matters, and attachment comparison.</p>
+      </div>
+      <div class="feature">
+        <h3>Dan-Law</h3>
+        <p>Federal and state legal research with Bluebook-validated citations, corpus ranking, and eyecite integration.</p>
+      </div>
+      <div class="feature">
+        <h3>Dan-Firm</h3>
+        <p>Trust accounting, billing, payroll, and IOLTA compliance with a 50-state rules engine.</p>
+      </div>
+      <div class="feature">
+        <h3>Dan-Excel</h3>
+        <p>Tax workpapers, depreciation schedules, and financial projections with live ledger data.</p>
+      </div>
+      <div class="feature">
+        <h3>Dan-Actuarial</h3>
+        <p>GRATs, CRUTs, ILITs, QPRTs — 34 estate planning structures with Monte Carlo simulation.</p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <p>Interested in early access? Get in touch.</p>
+      <a href="mailto:a.mcmillan@ai-dan.law" class="cta-link">Contact Us</a>
+    </div>
+
+    <div class="footer">
+      <p>ai-dan, LLC &middot; <a href="https://strait.law">Strait Law, PC</a><br>
+      Your data stays yours. Self-hosted or tenant-controlled cloud.</p>
+    </div>
+  </div>
+</body>
+</html>
