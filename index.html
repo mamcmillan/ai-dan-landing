@@ -1,213 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ai-dan — Legal AI for Modern Law Firms</title>
-  <meta name="description" content="ai-dan: document analysis, legal research, trust accounting, estate planning, and Office integration. Built by attorneys, for attorneys.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><polyline points='100,150 250,200 400,150 400,350 250,300 100,350 100,150' fill='%23881111' stroke='%23881111' stroke-width='30' stroke-linejoin='round' stroke-linecap='round'/></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ai&#8202;⋈&#8202;dan — Legal intelligence, refined.</title>
+  <meta name="description" content="A unified AI suite built for the practice of law." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --crimson: #881111;
-      --crimson-hover: #A41919;
-      --cream: #FDFDF6;
-      --warm-bg: #FFFFEE;
-      --charcoal: #222222;
-      --text-secondary: #6B6560;
-      --mid: #A8A29E;
-      --surface: #FDFDF6;
+      --red:        #881111;
+      --red-h:      #A41919;
+      --ink:        #1E1C1A;
+      --ink-2:      #4A4640;
+      --ink-3:      #6B6560;
+      --muted:      #A8A29E;
+      --line:       #D5D0CA;
+      --paper:      #FDFDF6;
+      --paper-warm: #FFFFEE;
+      --radius:     8px;
+      --t:          180ms ease;
+      --font-brand: 'Crimson Text', Georgia, 'Times New Roman', serif;
+      --font-ui:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: var(--paper-warm);
+      color: var(--ink);
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+    }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: var(--warm-bg);
-      color: var(--charcoal);
+    .accent-bar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red); z-index: 10;
+    }
+
+    /* ── two-column layout, collapses below 600px ── */
+    .page {
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(300px, 1fr) minmax(280px, 1fr);
+    }
+
+    /* ── brand panel ── */
+    .brand-panel {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      padding: 80px 64px;
+      background: var(--paper-warm);
+      border-right: 1px solid var(--line);
     }
 
-    .container {
-      max-width: 720px;
-      padding: 3rem 2rem;
-      text-align: center;
+    .wordmark-img {
+      display: block;
+      height: 68px;
+      width: auto;
+      margin-bottom: 36px;
+      user-select: none;
     }
 
-    .logo-mark {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 1.5rem;
+    .brand-rule {
+      width: 24px; height: 2px;
+      background: var(--red); margin-bottom: 24px;
     }
 
-    .brand {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
+    .brand-tagline {
+      font-family: var(--font-brand);
+      font-size: 20px; font-weight: 400;
+      color: var(--ink-2); line-height: 1.7;
+      max-width: 300px;
     }
 
-    .brand .bowtie {
-      color: var(--crimson);
-      font-size: 1.8rem;
-      vertical-align: middle;
-      margin: 0 0.15em;
+    .brand-tagline strong {
+      font-weight: 400;
+      color: var(--ink);
     }
 
-    .tagline {
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      font-weight: 300;
-      margin-bottom: 3rem;
-      line-height: 1.6;
+    /* ── login panel ── */
+    .login-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 64px;
+      background: var(--paper);
     }
 
-    .badge {
-      display: inline-block;
-      background: var(--crimson);
-      color: var(--cream);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4em 1.2em;
-      border-radius: 2rem;
-      margin-bottom: 2.5rem;
+    .login-card { width: 100%; max-width: 320px; }
+
+    .login-heading {
+      font-family: var(--font-brand);
+      font-size: 28px; font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 6px;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-      text-align: left;
+    .login-sub {
+      font-size: 13px; color: var(--ink-3);
+      margin-bottom: 40px; line-height: 1.65;
     }
 
-    .feature {
-      background: var(--surface);
-      border: 1px solid #EEEAE4;
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-    }
-
-    .feature h3 {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--crimson);
-      margin-bottom: 0.35rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .feature p {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    .cta-section { margin-bottom: 2rem; }
-
-    .cta-section p {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .cta-link {
-      display: inline-block;
-      background: var(--crimson);
-      color: var(--cream);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.75rem 2rem;
-      border-radius: 0.5rem;
-      transition: background 0.2s;
-    }
-
-    .cta-link:hover { background: var(--crimson-hover); }
-
-    .footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #EEEAE4;
-    }
-
-    .footer p {
-      font-size: 0.8rem;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-
-    .footer a {
-      color: var(--text-secondary);
+    .btn-ms {
+      width: 100%; padding: 14px 20px;
+      background: var(--red); border: none;
+      border-radius: var(--radius);
+      font-size: 13.5px; font-weight: 500;
+      color: #fff; cursor: pointer;
+      font-family: var(--font-ui);
+      display: flex; align-items: center;
+      justify-content: center; gap: 12px;
+      transition: background var(--t), transform var(--t), box-shadow var(--t);
+      box-shadow: 0 1px 2px rgba(30,28,26,.06), 0 2px 8px rgba(136,17,17,.12);
       text-decoration: none;
     }
 
-    .footer a:hover { color: var(--crimson); }
+    .btn-ms:hover {
+      background: var(--red-h);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(136,17,17,.22);
+    }
+
+    .btn-ms:active { transform: none; }
+
+    /* Microsoft four-square logo */
+    .ms-grid {
+      width: 18px; height: 18px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5px; flex-shrink: 0;
+    }
+    .ms-grid span { display: block; border-radius: 1px; }
+    .ms-f { background: #f25022; }
+    .ms-g { background: #7fba00; }
+    .ms-b { background: #00a4ef; }
+    .ms-y { background: #ffb900; }
+
+    .login-footer {
+      margin-top: 28px; text-align: center;
+      font-size: 11px; color: var(--muted);
+      line-height: 1.9;
+    }
+    .login-footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+    .login-footer a:hover { color: var(--red); }
+
+    /* ── entrance animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .brand-panel > * { animation: fadeUp .5s ease both; }
+    .brand-panel > *:nth-child(1) { animation-delay: .04s; }
+    .brand-panel > *:nth-child(2) { animation-delay: .09s; }
+    .brand-panel > *:nth-child(3) { animation-delay: .14s; }
+
+    .login-card > * { animation: fadeUp .5s ease both; }
+    .login-card > *:nth-child(1) { animation-delay: .18s; }
+    .login-card > *:nth-child(2) { animation-delay: .23s; }
+    .login-card > *:nth-child(3) { animation-delay: .28s; }
+    .login-card > *:nth-child(4) { animation-delay: .33s; }
 
     @media (max-width: 600px) {
-      .brand { font-size: 2.2rem; }
-      .features { grid-template-columns: 1fr; }
-      .container { padding: 2rem 1.25rem; }
+      .page { grid-template-columns: 1fr; }
+      .brand-panel {
+        border-right: none; border-bottom: 1px solid var(--line);
+        padding: 52px 32px 40px;
+      }
+      .login-panel { padding: 48px 32px 72px; }
+      .wordmark-img { height: 52px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <svg class="logo-mark" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-label="ai-dan bowtie logomark">
-      <polyline points="100,150 250,200 400,150 400,350 250,300 100,350 100,150"
-        fill="#881111" stroke="#881111" stroke-width="30"
-        stroke-linejoin="round" stroke-linecap="round"/>
-    </svg>
 
-    <h1 class="brand">ai<span class="bowtie">&#x2736;</span>dan</h1>
+  <div class="accent-bar"></div>
 
-    <p class="tagline">Legal AI for modern law firms.<br>Built by attorneys, for attorneys.</p>
+  <main class="page">
 
-    <div class="badge">Coming Soon</div>
+    <!-- Brand panel -->
+    <section class="brand-panel" aria-label="ai-dan brand">
+      <img class="wordmark-img"
+           src="ai-dan-wordmark.png"
+           alt="ai&#8202;⋈&#8202;dan" />
+      <div class="brand-rule"></div>
+      <p class="brand-tagline">
+        <strong>Legal intelligence, refined.</strong><br/>
+        A unified AI suite built for the practice of law.
+      </p>
+    </section>
 
-    <div class="features">
-      <div class="feature">
-        <h3>Dan-Word</h3>
-        <p>Legal drafting assistance, tracked-change comparison, and spendthrift-clause detection inside Microsoft Word.</p>
-      </div>
-      <div class="feature">
-        <h3>Dan-Outlook</h3>
-        <p>Pre-send compliance checks, one-click email filing to client matters, and attachment comparison.</p>
-      </div>
-      <div class="feature">
-        <h3>Dan-Law</h3>
-        <p>Federal and state legal research with Bluebook-validated citations, corpus ranking, and eyecite integration.</p>
-      </div>
-      <div class="feature">
-        <h3>Dan-Firm</h3>
-        <p>Trust accounting, billing, payroll, and IOLTA compliance with a 50-state rules engine.</p>
-      </div>
-      <div class="feature">
-        <h3>Dan-Excel</h3>
-        <p>Tax workpapers, depreciation schedules, and financial projections with live ledger data.</p>
-      </div>
-      <div class="feature">
-        <h3>Dan-Actuarial</h3>
-        <p>GRATs, CRUTs, ILITs, QPRTs — 34 estate planning structures with Monte Carlo simulation.</p>
-      </div>
-    </div>
+    <!-- Sign-in panel -->
+    <section class="login-panel" aria-label="Sign in">
+      <div class="login-card">
+        <h1 class="login-heading">Sign in</h1>
+        <p class="login-sub">
+          Use your firm's Microsoft account<br/>
+          to access your workspace.
+        </p>
 
-    <div class="cta-section">
-      <p>Interested in early access? Get in touch.</p>
-      <a href="mailto:a.mcmillan@ai-dan.law" class="cta-link">Contact Us</a>
-    </div>
+        <a class="btn-ms" href="https://hub.ai-dan.law" role="button">
+          <div class="ms-grid" aria-hidden="true">
+            <span class="ms-f"></span><span class="ms-g"></span>
+            <span class="ms-b"></span><span class="ms-y"></span>
+          </div>
+          Continue with Microsoft
+        </a>
 
-    <div class="footer">
-      <p>ai-dan, LLC &middot; <a href="https://strait.law">Strait Law, PC</a><br>
-      Your data stays yours. Self-hosted or tenant-controlled cloud.</p>
-    </div>
-  </div>
+        <div class="login-footer">
+          By signing in you agree to the<br/>
+          <a href="#">Terms of Service</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
