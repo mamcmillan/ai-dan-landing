@@ -57,12 +57,30 @@
       border-right: 1px solid var(--line);
     }
 
-    .wordmark-img {
-      display: block;
-      height: 68px;
-      width: auto;
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 36px;
       user-select: none;
+    }
+    .wm-text {
+      font-family: var(--font-brand);
+      font-size: 62px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .wm-bow {
+      width: 30px; height: 24px;
+      flex-shrink: 0;
+      position: relative; top: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .wm-text { font-size: 48px; }
+      .wm-bow  { width: 23px; height: 18px; top: 2px; }
     }
 
     .brand-rule {
@@ -170,7 +188,6 @@
         padding: 52px 32px 40px;
       }
       .login-panel { padding: 48px 32px 72px; }
-      .wordmark-img { height: 52px; }
     }
   </style>
 </head>
@@ -182,9 +199,14 @@
 
     <!-- Brand panel -->
     <section class="brand-panel" aria-label="ai-dan brand">
-      <img class="wordmark-img"
-           src="ai-dan-wordmark.png"
-           alt="ai&#8202;⋈&#8202;dan" />
+      <div class="wordmark" aria-label="ai-dan">
+        <span class="wm-text">ai</span>
+        <svg class="wm-bow" viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="1,1 14,12 1,23" fill="#881111"/>
+          <polygon points="29,1 16,12 29,23" fill="#881111"/>
+        </svg>
+        <span class="wm-text">dan</span>
+      </div>
       <div class="brand-rule"></div>
       <p class="brand-tagline">
         <strong>Legal intelligence, refined.</strong><br/>
@@ -201,7 +223,7 @@
           to access your workspace.
         </p>
 
-        <a class="btn-ms" href="https://hub.ai-dan.law" role="button">
+        <a class="btn-ms" href="https://login.microsoftonline.com/ef36eb69-0b46-4f39-a52a-5199b5a2dede/oauth2/v2.0/authorize?client_id=4d68d54e-61a0-4122-ab6c-d3d9105d5c9a&response_type=code&redirect_uri=https%3A%2F%2Fhub.ai-dan.law&scope=openid%20profile%20email%20User.Read&response_mode=query" role="button">
           <div class="ms-grid" aria-hidden="true">
             <span class="ms-f"></span><span class="ms-g"></span>
             <span class="ms-b"></span><span class="ms-y"></span>
@@ -211,7 +233,7 @@
 
         <div class="login-footer">
           By signing in you agree to the<br/>
-          <a href="#">Terms of Service</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/privacy.html">Privacy Policy</a>
         </div>
       </div>
     </section>
