@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="5" fill="#881111"/>
+  <rect width="32" height="32" rx="5" fill="#FFFFEE"/>
   <!-- bowtie mark: original viewBox 36.32×19.79, scaled to 24×13.08, centred in 32×32 -->
   <g transform="translate(4,9.46) scale(0.6608)">
-    <path d="M 0,1.5 Q 0,0 1.447,0.394 L 18.16,4.95 L 34.873,0.394 Q 36.32,0 36.32,1.5 L 36.32,18.29 Q 36.32,19.79 34.873,19.396 L 18.16,14.84 L 1.447,19.396 Q 0,19.79 0,18.29 Z" fill="#FFFFEE"/>
+    <path d="M 0,1.5 Q 0,0 1.447,0.394 L 18.16,4.95 L 34.873,0.394 Q 36.32,0 36.32,1.5 L 36.32,18.29 Q 36.32,19.79 34.873,19.396 L 18.16,14.84 L 1.447,19.396 Q 0,19.79 0,18.29 Z" fill="#881111"/>
   </g>
 </svg>
