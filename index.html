@@ -57,30 +57,13 @@
       border-right: 1px solid var(--line);
     }
 
-    .wordmark {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .wordmark-img {
+      display: block;
+      height: 68px;
+      width: auto;
+      max-width: 100%;
       margin-bottom: 36px;
       user-select: none;
-    }
-    .wm-text {
-      font-family: var(--font-brand);
-      font-size: 62px;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .wm-bow {
-      width: 30px; height: 24px;
-      flex-shrink: 0;
-      position: relative; top: 3px;
-    }
-
-    @media (max-width: 600px) {
-      .wm-text { font-size: 48px; }
-      .wm-bow  { width: 23px; height: 18px; top: 2px; }
     }
 
     .brand-rule {
@@ -188,6 +171,7 @@
         padding: 52px 32px 40px;
       }
       .login-panel { padding: 48px 32px 72px; }
+      .wordmark-img { height: 52px; }
     }
   </style>
 </head>
@@ -199,14 +183,9 @@
 
     <!-- Brand panel -->
     <section class="brand-panel" aria-label="ai-dan brand">
-      <div class="wordmark" aria-label="ai-dan">
-        <span class="wm-text">ai</span>
-        <svg class="wm-bow" viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <polygon points="1,1 14,12 1,23" fill="#881111"/>
-          <polygon points="29,1 16,12 29,23" fill="#881111"/>
-        </svg>
-        <span class="wm-text">dan</span>
-      </div>
+      <img class="wordmark-img"
+           src="ai-dan-wordmark.png"
+           alt="ai⋈dan" />
       <div class="brand-rule"></div>
       <p class="brand-tagline">
         <strong>Legal intelligence, refined.</strong><br/>
